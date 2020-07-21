@@ -4,7 +4,6 @@ export class EntityDetailResponse {
 }
 
 export class EntityDetail {
-
 success: boolean;
 mutual: {
 id: number;
