@@ -18,7 +18,7 @@ import { AgmCoreModule } from '@agm/core';
       NgbModule,
       TranslateModule,
       AgmCoreModule.forRoot({
-        apiKey: 'AIzaSyCxEZRp4tg_48enJ6DQuwqtaxz-R-f4pQw'
+        apiKey: 'AIzaSyAkRn_gN06xPes7K5ehY7lHm0elvo1fEUM'
       }),
       FormsModule,
       ConfirmationPopoverModule.forRoot({

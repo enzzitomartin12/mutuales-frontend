@@ -28,6 +28,7 @@ export class EntityComponent implements OnInit {
 
   constructor(private apiService: ApiService) {
     this.listRequest = new EntityListRequest();
+
   }
 
   async ngOnInit(): Promise<void> {
