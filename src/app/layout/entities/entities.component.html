@@ -2,12 +2,12 @@
   <app-page-header [heading]="'Entities' | translate" [icon]="'fa-address-sitemap'"></app-page-header>
   <div *ngIf="response && response.success">
     <agm-map [latitude]="initialLatitude" [longitude]="initialLongitude" [zoom]="initialZoom">
-      <div *ngFor="let cooperative of response.cooperatives">
-        <agm-marker [latitude]="cooperative.latitude" [longitude]="cooperative.longitude">
+      <div *ngFor="let response of response.mutuales">
+        <agm-marker [latitude]="response.latitud" [longitude]="response.longitud">
           <agm-info-window>
-            <strong>{{ cooperative.name }}</strong>
+            <strong>{{ entity.nombre }}</strong>
             <br />
-            {{ cooperative.address }}
+            {{ entity.direccion }}
           </agm-info-window>
         </agm-marker>
       </div>

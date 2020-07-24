@@ -38,10 +38,10 @@ export const createTranslateLoader = (http: HttpClient) => {
         }),
         AppRoutingModule,
         //Codigo Agregado Key
-        /*AgmCoreModule.forRoot({
-            apiKey: 'AIzaSyCxEZRp4tg_48enJ6DQuwqtaxz-R-f4pQw'
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyCxEZRp4tg_48enJ6DQuwqtaxz-R-f4pQw'//,
             //libraries: ['places'] 
-          }),*/
+          })
         //Codigo Agregado Key
     ],
     declarations: [AppComponent],

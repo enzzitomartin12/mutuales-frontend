@@ -34,7 +34,7 @@ export class EntityComponent implements OnInit {
     this.initialLatitude = -31.8053418;
     this.initialLongitude = -59.1664531;
     this.initialZoom = 8;
-    //await this.getItemsForMap();
+    await this.getItemsForMap(); //modificar
     await this.getItems();
     this.itemsPerPage = this.listRequest.limit;
     this.totalItems = this.listResponse.cantidad;
@@ -45,8 +45,8 @@ export class EntityComponent implements OnInit {
   }
 
   async getItems() {
-    //this.listResponse = await this.apiService.getAllEntities(this.listRequest);
-    this.listResponse = listados;
+    this.listResponse = await this.apiService.getAllEntities(this.listRequest);
+    //this.listResponse = listados;
   }
 
   loadPage(page: number) {
