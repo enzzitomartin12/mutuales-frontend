@@ -1,28 +1,53 @@
 <div class="login-page" [@routerTransition]>
   <div class="row justify-content-md-center">
     <div class="col-md-4">
+        <ngb-alert type='success' dismissible="true" *ngIf="showMessage" (close)="closeMessage()" >{{ 'User created' | translate }}</ngb-alert>
       <img class="user-avatar" src="assets/images/logo.png" width="150px" />
       <h1>Proyecto SPU - Mutuales</h1>
       <form role="form">
         <div class="form-content">
           <div class="form-group">
-            <input type="text" class="form-control input-underline input-lg" id="" placeholder="{{ 'First Name' | translate }}" />
+            <input
+              type="text"
+              class="form-control input-underline input-lg"
+              id="firstName"
+              name="firstName"
+              placeholder="{{ 'First Name' | translate }}"
+              [(ngModel)]="request.firstName"/>
           </div>
 
           <div class="form-group">
-            <input type="text" class="form-control input-underline input-lg" id="" placeholder="{{ 'Last Name' | translate }}" />
+            <input 
+              type="text" 
+              class="form-control input-underline input-lg" 
+              id="lastName"
+              name="lastName"
+              placeholder="{{ 'Last Name' | translate }}"
+              [(ngModel)]="request.lastName"/>
           </div>
 
           <div class="form-group">
-            <input type="text" class="form-control input-underline input-lg" id="" placeholder="{{ 'Email' | translate }}" />
+            <input
+              type="text"
+              class="form-control input-underline input-lg"
+              id="email"
+              name="email"
+              placeholder="{{ 'Email' | translate }}"
+              [(ngModel)]="request.email"/>
           </div>
 
           <div class="form-group">
-            <input type="password" class="form-control input-underline input-lg" id="" placeholder="{{ 'Password' | translate }}" />
+            <input
+              type="password"
+              class="form-control input-underline input-lg"
+              id="password"
+              name="password"
+              placeholder="{{ 'Password' | translate }}"
+              [(ngModel)]="request.password"/>
           </div>
           
         </div>
-        <a class="btn rounded-btn" [routerLink]="['/dashboard']">{{ 'Register' | translate }}</a
+        <a class="btn rounded-btn" (click)="onSignupin()">{{ 'Register' | translate }}</a
         >&nbsp;
         <a class="btn rounded-btn" [routerLink]="['/login']">{{ 'Log in' | translate }}</a>
       </form>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { User } from '../../users/models/user.list.response'
+
 
 @Component({
     selector: 'app-header',
@@ -9,6 +11,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class HeaderComponent implements OnInit {
     public pushRightClass: string;
+    public userLog: string;
 
     constructor(private translate: TranslateService, public router: Router) {
 
@@ -26,6 +29,8 @@ export class HeaderComponent implements OnInit {
                 this.toggleSidebar();
             }
         });
+        this.userLog = localStorage.getItem('userLog') + ' ' + sessionStorage.getItem('lastName');
+
     }
 
     ngOnInit() {
@@ -54,4 +59,6 @@ export class HeaderComponent implements OnInit {
     changeLang(language: string) {
         this.translate.use(language);
     }
+
+
 }

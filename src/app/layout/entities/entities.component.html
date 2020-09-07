@@ -1,18 +1,18 @@
 <div [@routerTransition]>
   <app-page-header [heading]="'Entities' | translate" [icon]="'fa-address-sitemap'"></app-page-header>
-  <!--div *ngIf="response && response.success"-->
-    <div>
-    <agm-map [latitude]="initialLatitude" [longitude]="initialLongitude" [zoom]="8">
-      <div *ngFor="let entityMap of response.mutuales">
-        <agm-marker [latitude]="entitiMap.latitud" [longitude]="entitiMap.longitud">
+  <div *ngIf="response && response.success">
+    <agm-map [latitude]="initialLatitude" [longitude]="initialLongitude" [zoom]="initialZoom">
+      <div *ngFor="let entity of response.mutuales">
+        <agm-marker [latitude]="entity.latitud" [longitude]="entity.longitud">
           <agm-info-window>
-            <strong>{{ entityMap.nombre }}</strong>
+            <strong>{{ entity.nombre }}</strong>
             <br />
-            {{ entityMap.id }}
-            {{ entityMap.direccion }}
+            {{ entity.direccion }}
+            <br />
+            {{ entity.tipo }}
           </agm-info-window>
         </agm-marker>
-      <!--/div-->
+      </div>
     </agm-map>
   </div>
 
@@ -22,22 +22,22 @@
     <div class="form-content">
       <div class="form-group">
         <label class="form-control-label" for="inputName">{{ 'Name' | translate }}</label>
-        <input type="text" class="form-control" id="inputName" name="inputName" />
+        <input type="text" class="form-control" id="inputName" name="inputName" [(ngModel)]="listRequest.name"/>
       </div>
 
       <div class="form-group">
-        <label class="form-control-label" for="inputLastName">{{ 'Address' | translate }}</label>
-        <input type="text" class="form-control" id="inputLastName" name="inputLastName" />
+        <label class="form-control-label" for="inputAddress">{{ 'Address' | translate }}</label>
+        <input type="text" class="form-control" id="inputAddress" name="inputAddress" [(ngModel)]="listRequest.address"/>
       </div>
 
       <div class="form-group">
-        <label class="form-control-label" for="inputMail">{{ 'Type' | translate }}</label>
-        <input type="email" class="form-control" id="inputMail" name="inputMail" />
+        <label class="form-control-label" for="inputType">{{ 'Type' | translate }}</label>
+        <input type="email" class="form-control" id="inputType" name="inputType" />
       </div>
 
       <div class="form-group">
-          <button class="btn btn-primary" type="button">{{ 'Search' | translate }}</button>
-          <button class="btn btn-primary" type="button">{{ 'Clear' | translate }}</button>
+          <button class="btn btn-primary" type="button" (click)="getItems()">{{ 'Search' | translate }}</button>
+          <button class="btn btn-primary" type="button"(click)="clearForm()">{{ 'Clear' | translate }}</button>
         </div>
     </div>
   </form>
@@ -47,6 +47,7 @@
       <table class="card-body table table-hover table-bordered">
         <thead>
           <tr>
+            <th>{{ 'Code' | translate }}</th>
             <th>{{ 'Name' | translate }}</th>
             <th>{{ 'Address' | translate }}</th>
             <th>{{ 'Type' | translate }}</th>
@@ -59,6 +60,9 @@
         <tbody>
           <tr scope="row" *ngFor="let entity of listResponse.mutuales">
             <td>
+              {{ entity.id }}
+            </td>
+            <td>
               {{ entity.nombre }}
             </td>
 
@@ -67,25 +71,25 @@
             </td>
 
             <td>
-              {{ entity.tipo | translate }}
+              {{ entity.tipo }}
             </td>
             
             <td>
-              {{ entity.localidad | translate }}
+              {{ entity.localidad.nombre }}
             </td>
 
             <td>
-              {{ entity.departamento | translate }}
+              {{ entity.localidad.departamento.nombre }}
             </td>
 
             <td>
-              Entre Rios
+              ENTRE RIOS
             </td>
 
             <td>
               <div class="btn-group" role="group">
                 <button type="button" class="btn btn-primary" [routerLink]="['/entity-detail', entity.id]">{{ 'View Details' | translate }}</button>
-                <button type="button" class="btn btn-secondary">{{ 'Update information' | translate }}</button>
+                <!--button type="button" class="btn btn-secondary">{{ 'Update information' | translate }}</button-->
               </div>
             </td>
           </tr>

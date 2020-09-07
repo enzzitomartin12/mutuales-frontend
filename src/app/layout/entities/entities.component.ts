@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { routerTransition } from 'src/app/router.animations';
 import { ApiService } from '../../shared/services/api.service';
 import { EntityForMap } from './models/entity.map.response';
@@ -25,20 +24,20 @@ export class EntityComponent implements OnInit {
   totalItems: any;
   page: any;
   previousPage: any;
-
   constructor(private apiService: ApiService) {
     this.listRequest = new EntityListRequest();
 
   }
 
   async ngOnInit(): Promise<void> {
-    this.initialLatitude = -31.8053418;
-    this.initialLongitude = -59.1664531;
+    this.initialLatitude = -31.7274739;
+    this.initialLongitude = -60.5194722;
     this.initialZoom = 8;
     await this.getItemsForMap(); //modificar
-    await this.getItems();
+
     this.itemsPerPage = this.listRequest.limit;
     this.totalItems = this.listResponse.cantidad;
+    await this.getItems();
   }
 
   async getItemsForMap() {
@@ -56,5 +55,9 @@ export class EntityComponent implements OnInit {
       this.listRequest.offset = (page - 1) * this.listRequest.limit;
       this.getItems();
     }
+  }
+  clearForm(): void {
+    this.listRequest = new EntityListRequest();
+    this.getItems();
   }
 }

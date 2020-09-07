@@ -12,6 +12,7 @@ export class SidebarComponent implements OnInit {
     collapsed: boolean;
     showMenu: string;
     pushRightClass: string;
+    public userLog: string;
 
     @Output() collapsedEvent = new EventEmitter<boolean>();
 
@@ -30,6 +31,7 @@ export class SidebarComponent implements OnInit {
                 this.toggleSidebar();
             }
         });
+        this.userLog = localStorage.getItem('userLog') + ' ' + sessionStorage.getItem('lastName');
     }
 
     ngOnInit() {

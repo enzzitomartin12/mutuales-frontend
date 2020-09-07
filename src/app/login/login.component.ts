@@ -15,6 +15,7 @@ import { LoginResponse } from './models/login.response';
 export class LoginComponent implements OnInit {
   request: LoginRequest;
   showMessage: boolean;
+  nombre: String;
 
   constructor(private translate: TranslateService, public router: Router, private apiService: ApiService) {
     this.translate.addLangs(['en', 'fr', 'ur', 'es', 'it', 'fa', 'de', 'zh-CHS']);
@@ -23,14 +24,30 @@ export class LoginComponent implements OnInit {
     this.translate.use(browserLang.match(/en|fr|ur|es|it|fa|de|zh-CHS/) ? browserLang : 'en');
     this.request = new LoginRequest();
     this.showMessage = false;
+    this.nombre = '';
   }
 
   ngOnInit() {}
 
-  async onLoggedin() {
+  /*async onLoggedin() {
     //const response: LoginResponse = await this.apiService.login(this.request);
     if (true){//response.success) {
       localStorage.setItem('isLoggedin', 'true');
+      this.router.navigateByUrl('/dashboard');
+    } else {
+      this.request = new LoginRequest();
+      this.showMessage = true;
+    }
+  }*/
+
+  async onLoggedin() {
+    const response: LoginResponse = await this.apiService.login(this.request);
+    if (response.success) {
+      localStorage.setItem('isLoggedin', 'true');
+      localStorage.setItem('userLog',JSON.stringify(response.data.firstName).split('"').join(''));
+      //his.nombre=response.data.firstName;
+      sessionStorage.setItem('lastName',JSON.stringify(response.data.lastName).split('"').join(''));
+
       this.router.navigateByUrl('/dashboard');
     } else {
       this.request = new LoginRequest();

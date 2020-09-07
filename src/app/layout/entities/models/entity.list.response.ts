@@ -9,4 +9,6 @@ export class Entity {
   nombre: string;
   direccion: string;
   tipo: string
+  localidad: string;
+  departamento: string;
 }

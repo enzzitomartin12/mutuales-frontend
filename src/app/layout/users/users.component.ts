@@ -17,6 +17,8 @@ export class UsersComponent implements OnInit {
   totalItems: any;
   page: any;
   previousPage: any;
+  responseUser: User;
+  requestUser: number;
 
   async ngOnInit(): Promise<void> {
     await this.getUsers();
@@ -49,4 +51,8 @@ export class UsersComponent implements OnInit {
       this.getUsers();
     }
   }
+async getUSer(){
+    this.responseUser = await this.apiService.getUser(this.requestUser);
+}
+
 }

@@ -4,12 +4,14 @@ import { LoginRequest } from '../../login/models/login.request';
 import { environment } from '../../../environments/environment';
 import { LoginResponse } from '../../login/models/login.response';
 import { UserListRequest } from '../../layout/users/models/user.list.request';
-import { UserListResponse } from 'src/app/layout/users/models/user.list.response';
+import { UserListResponse, User } from 'src/app/layout/users/models/user.list.response';
 import { EntityForMap } from 'src/app/layout/entities/models/entity.map.response';
 import { EntityListRequest } from 'src/app/layout/entities/models/entity.list.request';
 import { EntityListResponse } from 'src/app/layout/entities/models/entity.list.response';
 import { EntityDetailRequest } from 'src/app/layout/entity-detail/models/entity.detail.request';
 import { EntityDetailResponse } from 'src/app/layout/entity-detail/models/entity.detail.response';
+import {SignupRequest} from '../../signup/models/signup.request'
+import {SignupResponse} from '../../signup/models/signup.response'
 
 @Injectable({
   providedIn: 'root'
@@ -27,8 +29,23 @@ export class ApiService {
     return this.httpClient.post<LoginResponse>(`${this.apiURL}/users/login`, request).toPromise();
   }
 
+    /**
+   * SIGNUP
+   */
+  public post(request: SignupRequest): Promise<SignupResponse> {
+    return this.httpClient.post<SignupResponse>(`${this.apiURL}/users/create`, request).toPromise();
+  }
+
+    /**
+   * SIGNUP
+   */
+
   public getUsers(request: UserListRequest): Promise<UserListResponse> {
     return this.httpClient.post<UserListResponse>(`${this.apiURL}/users`, request).toPromise();
+  }
+
+  public getUser(id: number): Promise<User> {
+    return this.httpClient.get<User>(`${this.apiURL}/users` + id).toPromise();
   }
 
   public removeUser(id: number): Promise<any> {

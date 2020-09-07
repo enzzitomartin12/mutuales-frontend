@@ -5,7 +5,7 @@ export class EntityListRequest {
   offset: number;
 
   constructor() {
-    this.limit = 15;
+    this.limit = 20;
     this.offset = 0;
   }
 }

@@ -1,5 +1,4 @@
-export class LoginResponse {
+export class SignupResponse {
     success: boolean;
     data: any;
-
   }
