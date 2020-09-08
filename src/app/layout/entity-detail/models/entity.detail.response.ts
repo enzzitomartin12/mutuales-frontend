@@ -23,12 +23,12 @@ objetoCreacion: string;
 objetoFuncionamiento: string;
 dias: string;//'lunes-viernes'; 'lunes-sabado';
 horarios: string;//'mañana'; 'tarde'; 'mañana-tarde';
-cantidadFiliales: number;
+cantidadFiliales: string;
 cantidadProvincia: number;
 cantidadFueraProvincia: number;
 localidadesFiliales: string;
 provinciasFiliales: string;
-usaRedSocial: boolean;
+usaRedSocial: string;
 respondeRelevamiento: string;
 }
 }

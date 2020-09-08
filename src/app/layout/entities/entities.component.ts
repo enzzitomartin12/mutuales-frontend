@@ -58,6 +58,5 @@ export class EntityComponent implements OnInit {
   }
   clearForm(): void {
     this.listRequest = new EntityListRequest();
-    this.getItems();
   }
 }

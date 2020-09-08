@@ -3,7 +3,7 @@ import { routerTransition } from 'src/app/router.animations';
 import { ApiService } from '../../shared/services/api.service';
 import { ActivatedRoute } from '@angular/router';
 import { EntityDetailRequest } from 'src/app/layout/entity-detail/models/entity.detail.request';
-import { EntityDetailResponse } from 'src/app/layout/entity-detail/models/entity.detail.response';
+import { EntityDetail,EntityDetailResponse } from 'src/app/layout/entity-detail/models/entity.detail.response';
 import { EntityMap,EntityForMap } from '../entities/models/entity.map.response';
 
 @Component({
@@ -13,14 +13,15 @@ import { EntityMap,EntityForMap } from '../entities/models/entity.map.response';
   animations: [routerTransition()]
 })
 export class EntityDetailComponent implements OnInit {
-  response: EntityForMap;
-  mutual: EntityMap;
+  //response: EntityForMap;
+  //mutual: EntityMap;
   initialLatitude: number;
   initialLongitude: number;
   initialZoom: number;
 
   detailRequest: EntityDetailRequest;
   detailResponse: EntityDetailResponse;
+  mutual: any;
 
   constructor(private apiService: ApiService, private route: ActivatedRoute) { 
     this.detailRequest = new EntityDetailRequest();
@@ -30,18 +31,24 @@ export class EntityDetailComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
-
-
     this.detailRequest.id = this.route.snapshot.params.id;
     await this.getEntityDetail();
     console.log(this.detailResponse);
-    await this.getItemsForMapMut();
+    //await this.getItemsForMapMut();
    }
 
   async getEntityDetail() {
+    //this.detailResponse = await this.apiService.getEntityDetail(this.detailRequest);
     this.detailResponse = await this.apiService.getEntityDetail(this.detailRequest);
+
   }
-  async getItemsForMapMut() {
+
+  /*async getItemsForMapMut() {
     this.response = await this.apiService.getAllEntitiesForMap();
-  }
+    for  (let i=0;i<200;i++ ){
+      if (this.response.mutuales[i].id==this.detailRequest.id) {
+         this.mutual=this.response.mutuales[i];
+      }
+    }
+  }*/
 }
