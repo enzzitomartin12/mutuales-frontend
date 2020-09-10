@@ -26,7 +26,6 @@ export class EntityComponent implements OnInit {
   previousPage: any;
   constructor(private apiService: ApiService) {
     this.listRequest = new EntityListRequest();
-
   }
 
   async ngOnInit(): Promise<void> {
@@ -36,7 +35,7 @@ export class EntityComponent implements OnInit {
     await this.getItemsForMap(); //modificar
 
     this.itemsPerPage = this.listRequest.limit;
-    this.totalItems = this.listResponse.cantidad;
+
     await this.getItems();
   }
 
@@ -46,7 +45,7 @@ export class EntityComponent implements OnInit {
 
   async getItems() {
     this.listResponse = await this.apiService.getAllEntities(this.listRequest);
-    //this.listResponse = listados;
+    this.totalItems = this.listResponse.cantidad;
   }
 
   loadPage(page: number) {

@@ -1,6 +1,7 @@
 export class EntityListRequest {
   name?: string;
   address?: string;
+  type?: string;
   limit: number;
   offset: number;
 

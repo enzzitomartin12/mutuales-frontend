@@ -5,6 +5,7 @@ import { ApiService } from '../shared/services/api.service';
 import { routerTransition } from '../router.animations';
 import { LoginRequest } from './models/login.request';
 import { LoginResponse } from './models/login.response';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -29,17 +30,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {}
 
-  /*async onLoggedin() {
-    //const response: LoginResponse = await this.apiService.login(this.request);
-    if (true){//response.success) {
-      localStorage.setItem('isLoggedin', 'true');
-      this.router.navigateByUrl('/dashboard');
-    } else {
-      this.request = new LoginRequest();
-      this.showMessage = true;
-    }
-  }*/
-
   async onLoggedin() {
     const response: LoginResponse = await this.apiService.login(this.request);
     if (response.success) {
@@ -59,3 +49,4 @@ export class LoginComponent implements OnInit {
     this.showMessage = false;
   }
 }
+

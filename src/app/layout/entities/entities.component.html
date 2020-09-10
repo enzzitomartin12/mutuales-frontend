@@ -17,24 +17,23 @@
   </div>
 
   <br />
+  <div class="card-header">{{ 'Search form' | translate }}</div>
   <form role="form">
-    <div class="card-header">{{ 'Search form' | translate }}</div>
     <div class="form-content">
       <div class="form-group">
         <label class="form-control-label" for="inputName">{{ 'Name' | translate }}</label>
-        <input type="text" class="form-control" id="inputName" name="inputName" [(ngModel)]="listRequest.name"/>
+        <input type="text" class="form-control" id="inputName" name="inputName" [(ngModel)]="listRequest.name" />
       </div>
 
       <div class="form-group">
         <label class="form-control-label" for="inputAddress">{{ 'Address' | translate }}</label>
-        <input type="text" class="form-control" id="inputAddress" name="inputAddress" [(ngModel)]="listRequest.address"/>
+        <input type="text" class="form-control" id="inputAddress" name="inputAddress" [(ngModel)]="listRequest.address" />
       </div>
 
       <div class="form-group">
         <label class="form-control-label" for="inputType">{{ 'Type' | translate }}</label>
-        <input type="email" class="form-control" id="inputType" name="inputType" />
+        <input type="text" class="form-control" id="inputType" name="inputType" [(ngModel)]="listRequest.type" />
       </div>
-
       <div class="form-group">
           <button class="btn btn-primary" type="button" (click)="getItems()">{{ 'Search' | translate }}</button>
           <button class="btn btn-primary" type="button"(click)="clearForm()">{{ 'Clear' | translate }}</button>

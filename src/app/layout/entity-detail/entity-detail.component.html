@@ -17,6 +17,8 @@
   </div-->
   
   <br />
+
+  <div *ngIf="isDataLoaded">
   <form role="form">
     <div class="row">
       <div class="col-lg-6">
@@ -140,7 +142,7 @@
       <div class="col-lg-6">
         <div class="form-group">
           <label for="inputRedSoc">Red Social</label>
-          <input class="form-control" id="inputRedSoc" type="boolean" disabled="" value="{{ detailResponse.mutual.usaRedSocial }}">
+          <input class="form-control" id="inputRedSoc" type="text" disabled="" value="{{ detailResponse.mutual.usaRedSocial }}">
           <!--td>
             <input type="checkbox" [(ngModel)]="detailResponse.mutual.usaRedSocial" disabled="true" />
           </td-->
@@ -152,7 +154,7 @@
           <!--td>
             <input type="checkbox" [(ngModel)]="detailResponse.mutual.respondeRelevamiento" disabled="true" />
           </td-->
-          <input class="form-control" id="inputRel" type="boolean" disabled="" value="{{ detailResponse.mutual.respondeRelevamiento}}">
+          <input class="form-control" id="inputRel" type="text" disabled="" value="{{ detailResponse.mutual.respondeRelevamiento}}">
         </div>
       </div>
     </div>
@@ -161,6 +163,7 @@
       <button type="button" class="btn btn-primary" [routerLink]="['/entities']">{{ 'Regresar' | translate }}</button>
     </div>
   </form>
+  </div>
   <br>
 <div>
 

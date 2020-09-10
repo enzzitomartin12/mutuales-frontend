@@ -1,7 +1,9 @@
 <div class="login-page" [@routerTransition]>
   <div class="row justify-content-md-center">
     <div class="col-md-4">
-        <ngb-alert type='success' dismissible="true" *ngIf="showMessage" (close)="closeMessage()" >{{ 'User created' | translate }}</ngb-alert>
+        <ngb-alert type='success' dismissible="true" *ngIf="showMessage" (close)="closeMessage()" >{{ 'Usuario creado' | translate }}</ngb-alert>
+        <ngb-alert type='danger' dismissible="true" *ngIf="showVacio" (close)="closeMessage()" >{{ 'Hay un error con los datos ingresados, por favor verifique nuevamente' | translate }}</ngb-alert>
+
       <img class="user-avatar" src="assets/images/logo.png" width="150px" />
       <h1>Proyecto SPU - Mutuales</h1>
       <form role="form">
@@ -13,7 +15,8 @@
               id="firstName"
               name="firstName"
               placeholder="{{ 'First Name' | translate }}"
-              [(ngModel)]="request.firstName"/>
+              [(ngModel)]="request.firstName" maxlength="15"/>
+              <ngb-alert type='danger' dismissible="true" *ngIf="showMessageFirstName" (close)="closeMessage()" >{{ 'Ingrese un nombre valido' | translate }}</ngb-alert>
           </div>
 
           <div class="form-group">
@@ -23,7 +26,8 @@
               id="lastName"
               name="lastName"
               placeholder="{{ 'Last Name' | translate }}"
-              [(ngModel)]="request.lastName"/>
+              [(ngModel)]="request.lastName" maxlength="15"/>
+              <ngb-alert type='danger' dismissible="true" *ngIf="showMessageFirstName" (close)="closeMessage()" >{{ 'Ingrese un apellido valido' | translate }}</ngb-alert>
           </div>
 
           <div class="form-group">
@@ -33,7 +37,8 @@
               id="email"
               name="email"
               placeholder="{{ 'Email' | translate }}"
-              [(ngModel)]="request.email"/>
+              [(ngModel)]="request.email" maxlength="25"/>
+              <ngb-alert type='danger' dismissible="true" *ngIf="showMessageEmail" (close)="closeMessage()" >{{ 'Ingrese un mail valido' | translate }} </ngb-alert>
           </div>
 
           <div class="form-group">
@@ -43,7 +48,8 @@
               id="password"
               name="password"
               placeholder="{{ 'Password' | translate }}"
-              [(ngModel)]="request.password"/>
+              [(ngModel)]="request.password" maxlength="16"/>
+              <ngb-alert type='danger' dismissible="true" *ngIf="showMessagePassword" (close)="closeMessage()" >{{ 'Ingrese una contraseña valida, como minimo 6 caracteres' | translate }} </ngb-alert>
           </div>
           
         </div>

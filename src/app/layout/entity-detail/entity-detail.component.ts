@@ -21,19 +21,23 @@ export class EntityDetailComponent implements OnInit {
 
   detailRequest: EntityDetailRequest;
   detailResponse: EntityDetailResponse;
-  mutual: any;
+  //mutual: any;
+  isDataLoaded: boolean;
 
   constructor(private apiService: ApiService, private route: ActivatedRoute) { 
     this.detailRequest = new EntityDetailRequest();
     this.initialLatitude = -31.7274739;
     this.initialLongitude = -60.5194722;
     this.initialZoom = 8;
+    this.isDataLoaded = false;
+    
   }
 
   async ngOnInit(): Promise<void> {
     this.detailRequest.id = this.route.snapshot.params.id;
     await this.getEntityDetail();
     console.log(this.detailResponse);
+    this.isDataLoaded = this.detailResponse.success;
     //await this.getItemsForMapMut();
    }
 
