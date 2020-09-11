@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('isLoggedin', 'true');
       localStorage.setItem('userLog',JSON.stringify(response.data.firstName).split('"').join(''));
       //his.nombre=response.data.firstName;
-      sessionStorage.setItem('lastName',JSON.stringify(response.data.lastName).split('"').join(''));
+      localStorage.setItem('lastName',JSON.stringify(response.data.lastName).split('"').join(''));
 
       this.router.navigateByUrl('/dashboard');
     } else {

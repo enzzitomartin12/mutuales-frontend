@@ -37,6 +37,7 @@ export class EntityComponent implements OnInit {
     this.itemsPerPage = this.listRequest.limit;
 
     await this.getItems();
+    this.totalItems = this.listResponse.cantidad;
   }
 
   async getItemsForMap() {
@@ -45,7 +46,7 @@ export class EntityComponent implements OnInit {
 
   async getItems() {
     this.listResponse = await this.apiService.getAllEntities(this.listRequest);
-    this.totalItems = this.listResponse.cantidad;
+
   }
 
   loadPage(page: number) {

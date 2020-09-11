@@ -29,7 +29,7 @@ export class HeaderComponent implements OnInit {
                 this.toggleSidebar();
             }
         });
-        this.userLog = localStorage.getItem('userLog') + ' ' + sessionStorage.getItem('lastName');
+        this.userLog = localStorage.getItem('userLog') + ' ' + localStorage.getItem('lastName');
 
     }
 
