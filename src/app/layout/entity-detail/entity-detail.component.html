@@ -1,0 +1,172 @@
+<div [@routerTransition]>
+  <app-page-header [heading]="'Entities/Detail' | translate" [icon]="'fa-address-sitemap'"></app-page-header>
+  <!--div *ngIf="detailResponse && detailResponse.success">
+    <agm-map [latitude]="-31.827775" [longitude]="-60.5236972" [zoom]="initialZoom">
+      <div>
+        <agm-marker [latitude]="detailResponse.mutual.latitud" [longitude]="detailResponse.mutual.longitud">
+          <agm-info-window>
+            <strong>{{ detailResponse.mutual.nombre }}</strong>
+            <br />
+            {{ detailResponse.mutual.direccion }}
+            <br />
+            {{ detailResponse.mutual.tipo }}
+          </agm-info-window>
+        </agm-marker>
+      </div>
+    </agm-map>
+  </div-->
+  
+  <br />
+
+  <div *ngIf="isDataLoaded">
+  <form role="form">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="form-group">
+          <label for="inputName">Nombre</label>
+          <input class="form-control" id="inputName" type="text" disabled="" value="{{ detailResponse.mutual.nombre }}">
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="form-group">
+          <label for="inputCuit">CUIT</label>
+          <input class="form-control" id="inputCuit" type="text" disabled="" value="{{ detailResponse.mutual.cuit }}">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="form-group">
+          <label for="inputAddress">Dirección</label>
+          <input class="form-control" id="inputAddress" type="text" disabled="" value="{{ detailResponse.mutual.direccion }}">
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="form-group">
+          <label for="inputPostalCode">Código Postal</label>
+          <input class="form-control" id="inputPostalCode" type="text" disabled="" value="{{ detailResponse.mutual.codigoPostal }}">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="form-group">
+          <label for="inputPhoneNumber">Teléfono</label>
+          <input class="form-control" id="inputPhoneNumber" type="text" disabled="" value="{{ detailResponse.mutual.telefono }}">
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="form-group">
+          <label for="inputEmail">E-mail</label>
+          <input class="form-control" id="inputEmail" type="text" disabled="" value="{{ detailResponse.mutual.email }}">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="form-group">
+          <label for="inputFechaIns">Fecha Inscripcion</label>
+          <input class="form-control" id="inputFechaIns" type="text" disabled="" value="{{ detailResponse.mutual.fechaInscripcion }}">
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="form-group">
+          <label for="inputAnioFund">Año Fundacion</label>
+          <input class="form-control" id="inputAnioFund" type="text" disabled="" value="{{ detailResponse.mutual.anioFundacion }}">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="form-group">
+          <label for="inputObjeto">Objeto de Creación</label>
+          <input class="form-control" id="inputObjeto" type="text" disabled="" value="{{ detailResponse.mutual.objetoCreacion }}">
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="form-group">
+          <label for="inputFunc">Objeto de Funcionamiento</label>
+          <input class="form-control" id="inputFunc" type="text" disabled="" value="{{ detailResponse.mutual.objetoFuncionamiento }}">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="form-group">
+          <label for="inputDias">Dias</label>
+          <input class="form-control" id="inputDias" type="text" disabled="" value="{{ detailResponse.mutual.dias }}">
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="form-group">
+          <label for="inputHora">Horarios</label>
+          <input class="form-control" id="inputHora" type="text" disabled="" value="{{ detailResponse.mutual.horarios }}">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="form-group">
+          <label for="inputCantFil">Cantidad de Filiales</label>
+          <input class="form-control" id="inputCantFil" type="text" disabled="" value="{{ detailResponse.mutual.cantidadFiliales }}">
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="form-group">
+          <label for="inputCantFilP">Cantidad de Filiales en la Provincia</label>
+          <input class="form-control" id="inputCantFilP" type="text" disabled="" value="{{ detailResponse.mutual.cantidadProvincia }}">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="form-group">
+          <label for="inputCantFilNP">Cantidad de Filiales fuera de la Provincia</label>
+          <input class="form-control" id="inputCantFilNP" type="text" disabled="" value="{{ detailResponse.mutual.cantidadFueraProvincia }}">
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="form-group">
+          <label for="inputLocFil">Localidades de las Filiales</label>
+          <input class="form-control" id="inputLocFil" type="text" disabled="" value="{{ detailResponse.mutual.localidadesFiliales }}">
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="form-group">
+          <label for="inputProvFil">Provincias de las Filiales</label>
+          <input class="form-control" id="inputProvFil" type="text" disabled="" value="{{ detailResponse.mutual.provinciasFiliales }}">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="form-group">
+          <label for="inputRedSoc">Red Social</label>
+          <input class="form-control" id="inputRedSoc" type="text" disabled="" value="{{ detailResponse.mutual.usaRedSocial }}">
+          <!--td>
+            <input type="checkbox" [(ngModel)]="detailResponse.mutual.usaRedSocial" disabled="true" />
+          </td-->
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="form-group">
+          <label for="inputRel">Relevamiento</label>
+          <!--td>
+            <input type="checkbox" [(ngModel)]="detailResponse.mutual.respondeRelevamiento" disabled="true" />
+          </td-->
+          <input class="form-control" id="inputRel" type="text" disabled="" value="{{ detailResponse.mutual.respondeRelevamiento}}">
+        </div>
+      </div>
+    </div>
+    <br />
+    <div class="btn-group" role="group">
+      <button type="button" class="btn btn-primary" [routerLink]="['/entities']">{{ 'Regresar' | translate }}</button>
+    </div>
+  </form>
+  </div>
+  <br>
+<div>
+
+
+
+

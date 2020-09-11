@@ -6,6 +6,11 @@ import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+<<<<<<< HEAD
+=======
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule } from '@angular/forms';
+>>>>>>> f69769a619158196e47a3b397bae1e8e8b94a653
 
 
 @NgModule({
@@ -15,7 +20,13 @@ import { HttpClientModule } from '@angular/common/http';
         LoginRoutingModule,
         FormsModule,
         NgbAlertModule,
+<<<<<<< HEAD
         HttpClientModule],
+=======
+        HttpClientModule,
+        NgbModule,
+        ReactiveFormsModule],
+>>>>>>> f69769a619158196e47a3b397bae1e8e8b94a653
     declarations: [LoginComponent]
 })
 export class LoginModule {}

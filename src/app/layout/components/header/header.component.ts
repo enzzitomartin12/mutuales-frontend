@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+<<<<<<< HEAD
+=======
+import { User } from '../../users/models/user.list.response'
+
+>>>>>>> f69769a619158196e47a3b397bae1e8e8b94a653
 
 @Component({
     selector: 'app-header',
@@ -9,6 +14,10 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class HeaderComponent implements OnInit {
     public pushRightClass: string;
+<<<<<<< HEAD
+=======
+    public userLog: string;
+>>>>>>> f69769a619158196e47a3b397bae1e8e8b94a653
 
     constructor(private translate: TranslateService, public router: Router) {
 
@@ -26,6 +35,11 @@ export class HeaderComponent implements OnInit {
                 this.toggleSidebar();
             }
         });
+<<<<<<< HEAD
+=======
+        this.userLog = localStorage.getItem('userLog') + ' ' + sessionStorage.getItem('lastName');
+
+>>>>>>> f69769a619158196e47a3b397bae1e8e8b94a653
     }
 
     ngOnInit() {
@@ -54,4 +68,9 @@ export class HeaderComponent implements OnInit {
     changeLang(language: string) {
         this.translate.use(language);
     }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> f69769a619158196e47a3b397bae1e8e8b94a653
 }

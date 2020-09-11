@@ -9,6 +9,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
+import { AgmCoreModule } from '@agm/core';
+import { FormsModule } from '@angular/forms';
 
 
 // AoT requires an exported function for factories
@@ -24,6 +26,7 @@ export const createTranslateLoader = (http: HttpClient) => {
 
 @NgModule({
     imports: [
+        FormsModule,
         CommonModule,
         BrowserModule,
         BrowserAnimationsModule,
@@ -35,7 +38,13 @@ export const createTranslateLoader = (http: HttpClient) => {
                 deps: [HttpClient]
             }
         }),
-        AppRoutingModule
+        AppRoutingModule,
+        //Codigo Agregado Key
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyAkRn_gN06xPes7K5ehY7lHm0elvo1fEUM'//, modificada
+            ,libraries: ['places'] 
+          })
+        //Codigo Agregado Key
     ],
     declarations: [AppComponent],
     providers: [AuthGuard],

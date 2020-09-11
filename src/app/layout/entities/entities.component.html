@@ -2,12 +2,23 @@
   <app-page-header [heading]="'Entities' | translate" [icon]="'fa-address-sitemap'"></app-page-header>
   <div *ngIf="response && response.success">
     <agm-map [latitude]="initialLatitude" [longitude]="initialLongitude" [zoom]="initialZoom">
+<<<<<<< HEAD
       <div *ngFor="let cooperative of response.cooperatives">
         <agm-marker [latitude]="cooperative.latitude" [longitude]="cooperative.longitude">
           <agm-info-window>
             <strong>{{ cooperative.name }}</strong>
             <br />
             {{ cooperative.address }}
+=======
+      <div *ngFor="let entity of response.mutuales">
+        <agm-marker [latitude]="entity.latitud" [longitude]="entity.longitud">
+          <agm-info-window>
+            <strong>{{ entity.nombre }}</strong>
+            <br />
+            {{ entity.direccion }}
+            <br />
+            {{ entity.tipo }}
+>>>>>>> f69769a619158196e47a3b397bae1e8e8b94a653
           </agm-info-window>
         </agm-marker>
       </div>
@@ -15,6 +26,7 @@
   </div>
 
   <br />
+<<<<<<< HEAD
   <form role="form">
     <div class="card-header">{{ 'Search form' | translate }}</div>
     <div class="form-content">
@@ -36,15 +48,45 @@
       <div class="form-group">
           <button class="btn btn-primary" type="button">{{ 'Search' | translate }}</button>
           <button class="btn btn-primary" type="button">{{ 'Clear' | translate }}</button>
+=======
+  <div class="card-header">{{ 'Search form' | translate }}</div>
+  <form role="form">
+    <div class="form-content">
+      <div class="form-group">
+        <label class="form-control-label" for="inputName">{{ 'Name' | translate }}</label>
+        <input type="text" class="form-control" id="inputName" name="inputName" [(ngModel)]="listRequest.name" />
+      </div>
+
+      <div class="form-group">
+        <label class="form-control-label" for="inputAddress">{{ 'Address' | translate }}</label>
+        <input type="text" class="form-control" id="inputAddress" name="inputAddress" [(ngModel)]="listRequest.address" />
+      </div>
+
+      <div class="form-group">
+        <label class="form-control-label" for="inputType">{{ 'Type' | translate }}</label>
+        <input type="text" class="form-control" id="inputType" name="inputType" [(ngModel)]="listRequest.type" />
+      </div>
+      <div class="form-group">
+          <button class="btn btn-primary" type="button" (click)="getItems()">{{ 'Search' | translate }}</button>
+          <button class="btn btn-primary" type="button"(click)="clearForm()">{{ 'Clear' | translate }}</button>
+>>>>>>> f69769a619158196e47a3b397bae1e8e8b94a653
         </div>
     </div>
   </form>
 
   <div class="card-body table-responsive">
+<<<<<<< HEAD
     <div *ngIf="listResponse && listResponse.cooperatives">
       <table class="card-body table table-hover table-bordered">
         <thead>
           <tr>
+=======
+    <div *ngIf="listResponse && listResponse.mutuales">
+      <table class="card-body table table-hover table-bordered">
+        <thead>
+          <tr>
+            <th>{{ 'Code' | translate }}</th>
+>>>>>>> f69769a619158196e47a3b397bae1e8e8b94a653
             <th>{{ 'Name' | translate }}</th>
             <th>{{ 'Address' | translate }}</th>
             <th>{{ 'Type' | translate }}</th>
@@ -55,6 +97,7 @@
           </tr>
         </thead>
         <tbody>
+<<<<<<< HEAD
           <tr scope="row" *ngFor="let entity of listResponse.cooperatives">
             <td>
               {{ entity.name }}
@@ -78,12 +121,45 @@
 
             <td>
               -
+=======
+          <tr scope="row" *ngFor="let entity of listResponse.mutuales">
+            <td>
+              {{ entity.id }}
+            </td>
+            <td>
+              {{ entity.nombre }}
+            </td>
+
+            <td>
+              {{ entity.direccion }}
+            </td>
+
+            <td>
+              {{ entity.tipo }}
+            </td>
+            
+            <td>
+              {{ entity.localidad.nombre }}
+            </td>
+
+            <td>
+              {{ entity.localidad.departamento.nombre }}
+            </td>
+
+            <td>
+              ENTRE RIOS
+>>>>>>> f69769a619158196e47a3b397bae1e8e8b94a653
             </td>
 
             <td>
               <div class="btn-group" role="group">
+<<<<<<< HEAD
                 <button type="button" class="btn btn-primary">{{ 'View Details' | translate }}</button>
                 <button type="button" class="btn btn-secondary">{{ 'Update information' | translate }}</button>
+=======
+                <button type="button" class="btn btn-primary" [routerLink]="['/entity-detail', entity.id]">{{ 'View Details' | translate }}</button>
+                <!--button type="button" class="btn btn-secondary">{{ 'Update information' | translate }}</button-->
+>>>>>>> f69769a619158196e47a3b397bae1e8e8b94a653
               </div>
             </td>
           </tr>
@@ -92,15 +168,24 @@
 
       <ngb-pagination
         size="lg"
+<<<<<<< HEAD
         [collectionSize]="listResponse.totalElements"
         [pageSize]="listRequest.limit"
+=======
+        [collectionSize]="listResponse.cantidad"
+        [pageSize]="10"
+>>>>>>> f69769a619158196e47a3b397bae1e8e8b94a653
         [(page)]="page"
         [rotate]="true"
         (pageChange)="loadPage($event)"
         [boundaryLinks]="true"
       ></ngb-pagination>
 
+<<<<<<< HEAD
       <div class="card-footer float-right">{{ 'Results quantity' | translate }}: {{ listResponse.totalElements }}</div>
+=======
+      <div class="card-footer float-right">{{ 'Results quantity' | translate }}: {{ listResponse.cantidad }}</div>
+>>>>>>> f69769a619158196e47a3b397bae1e8e8b94a653
     </div>
   </div>
 </div>
