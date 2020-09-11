@@ -17,12 +17,8 @@ const routes: Routes = [
             { path: 'components', loadChildren: './bs-component/bs-component.module#BsComponentModule' },
             { path: 'blank-page', loadChildren: './blank-page/blank-page.module#BlankPageModule' },
             { path: 'users', loadChildren: './users/users.module#UsersModule'},
-<<<<<<< HEAD
-            { path: 'entities', loadChildren: './entities/entities.module#EntityModule'}
-=======
             { path: 'entities', loadChildren: './entities/entities.module#EntityModule'},
             { path: 'entity-detail/:id', loadChildren: './entity-detail/entity-detail.module#EntityDetailModule'}
->>>>>>> f69769a619158196e47a3b397bae1e8e8b94a653
         ]
     }
 ];
