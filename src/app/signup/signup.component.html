@@ -1,36 +1,14 @@
 <div class="login-page" [@routerTransition]>
   <div class="row justify-content-md-center">
     <div class="col-md-4">
-<<<<<<< HEAD
-=======
         <ngb-alert type='success' dismissible="true" *ngIf="showMessage" (close)="closeMessage()" >{{ 'Usuario creado' | translate }}</ngb-alert>
         <ngb-alert type='danger' dismissible="true" *ngIf="showVacio" (close)="closeMessage()" >{{ 'Hay un error con los datos ingresados, por favor verifique nuevamente' | translate }}</ngb-alert>
 
->>>>>>> f69769a619158196e47a3b397bae1e8e8b94a653
       <img class="user-avatar" src="assets/images/logo.png" width="150px" />
       <h1>Proyecto SPU - Mutuales</h1>
       <form role="form">
         <div class="form-content">
           <div class="form-group">
-<<<<<<< HEAD
-            <input type="text" class="form-control input-underline input-lg" id="" placeholder="{{ 'First Name' | translate }}" />
-          </div>
-
-          <div class="form-group">
-            <input type="text" class="form-control input-underline input-lg" id="" placeholder="{{ 'Last Name' | translate }}" />
-          </div>
-
-          <div class="form-group">
-            <input type="text" class="form-control input-underline input-lg" id="" placeholder="{{ 'Email' | translate }}" />
-          </div>
-
-          <div class="form-group">
-            <input type="password" class="form-control input-underline input-lg" id="" placeholder="{{ 'Password' | translate }}" />
-          </div>
-          
-        </div>
-        <a class="btn rounded-btn" [routerLink]="['/dashboard']">{{ 'Register' | translate }}</a
-=======
             <input
               type="text"
               class="form-control input-underline input-lg"
@@ -59,7 +37,7 @@
               id="email"
               name="email"
               placeholder="{{ 'Email' | translate }}"
-              [(ngModel)]="request.email" maxlength="25"/>
+              [(ngModel)]="request.email" maxlength="50"/>
               <ngb-alert type='danger' dismissible="true" *ngIf="showMessageEmail" (close)="closeMessage()" >{{ 'Ingrese un mail valido' | translate }} </ngb-alert>
           </div>
 
@@ -76,14 +54,9 @@
           
         </div>
         <a class="btn rounded-btn" (click)="onSignupin()">{{ 'Register' | translate }}</a
->>>>>>> f69769a619158196e47a3b397bae1e8e8b94a653
         >&nbsp;
         <a class="btn rounded-btn" [routerLink]="['/login']">{{ 'Log in' | translate }}</a>
       </form>
     </div>
   </div>
-<<<<<<< HEAD
 </div>
-=======
-</div>
->>>>>>> f69769a619158196e47a3b397bae1e8e8b94a653

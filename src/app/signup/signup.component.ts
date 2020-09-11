@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-import { Component, OnInit } from '@angular/core';
-import { routerTransition } from '../router.animations';
-import { TranslateService } from '@ngx-translate/core';
-=======
 import { Component, OnInit, ɵbypassSanitizationTrustResourceUrl } from '@angular/core';
 import { Router } from '@angular/router';
 import { routerTransition } from '../router.animations';
@@ -13,7 +8,6 @@ import { SignupResponse } from './models/signup.response';
 import { stringify } from 'querystring';
 import { and } from '@angular/router/src/utils/collection';
 
->>>>>>> f69769a619158196e47a3b397bae1e8e8b94a653
 
 @Component({
     selector: 'app-signup',
@@ -22,9 +16,6 @@ import { and } from '@angular/router/src/utils/collection';
     animations: [routerTransition()]
 })
 export class SignupComponent implements OnInit {
-<<<<<<< HEAD
-    constructor(private translate: TranslateService) {
-=======
     request: SignupRequest;
     showMessage: boolean;
     showMessageEmail: boolean;
@@ -37,17 +28,10 @@ export class SignupComponent implements OnInit {
 
 
     constructor(private translate: TranslateService, public router: Router, private apiService: ApiService) {
->>>>>>> f69769a619158196e47a3b397bae1e8e8b94a653
         this.translate.addLangs(['en', 'fr', 'ur', 'es', 'it', 'fa', 'de', 'zh-CHS']);
         this.translate.setDefaultLang('en');
         const browserLang = this.translate.getBrowserLang();
         this.translate.use(browserLang.match(/en|fr|ur|es|it|fa|de|zh-CHS/) ? browserLang : 'en');
-<<<<<<< HEAD
-    }
-
-    ngOnInit() {}
-}
-=======
         this.request = new SignupRequest();
         this.showMessage = false;
         this.showMessageEmail = false;
@@ -170,4 +154,3 @@ export class SignupComponent implements OnInit {
         this.showVacio;
       }
 }
->>>>>>> f69769a619158196e47a3b397bae1e8e8b94a653
